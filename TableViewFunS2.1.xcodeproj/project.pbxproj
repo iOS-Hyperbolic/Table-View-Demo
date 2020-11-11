@@ -14,6 +14,7 @@
 		0572F277255BDD3400CE04E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0572F276255BDD3400CE04E3 /* Assets.xcassets */; };
 		0572F27A255BDD3400CE04E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0572F278255BDD3400CE04E3 /* LaunchScreen.storyboard */; };
 		0572F287255BE5C400CE04E3 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572F286255BE5C400CE04E3 /* Dog.swift */; };
+		0572F28A255BF05D00CE04E3 /* DogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572F289255BF05D00CE04E3 /* DogTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0572F279255BDD3400CE04E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0572F27B255BDD3400CE04E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0572F286255BE5C400CE04E3 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		0572F289255BF05D00CE04E3 /* DogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0572F278255BDD3400CE04E3 /* LaunchScreen.storyboard */,
 				0572F27B255BDD3400CE04E3 /* Info.plist */,
 				0572F286255BE5C400CE04E3 /* Dog.swift */,
+				0572F289255BF05D00CE04E3 /* DogTableViewCell.swift */,
 			);
 			path = TableViewFunS2.1;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				0572F272255BDD3300CE04E3 /* DogTableViewController.swift in Sources */,
 				0572F26E255BDD3300CE04E3 /* AppDelegate.swift in Sources */,
+				0572F28A255BF05D00CE04E3 /* DogTableViewCell.swift in Sources */,
 				0572F287255BE5C400CE04E3 /* Dog.swift in Sources */,
 				0572F270255BDD3300CE04E3 /* SceneDelegate.swift in Sources */,
 			);
