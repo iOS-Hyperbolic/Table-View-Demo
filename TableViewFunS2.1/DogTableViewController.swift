@@ -56,6 +56,22 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // Remove dog at source indexpath in dogs array so shits not jacked up
+        let dog = dogs.remove(at: sourceIndexPath.row)
+        // Insert it at the destination indexPath
+        dogs.insert(dog, at: destinationIndexPath.row)
+        // reload tableview cus you're the boss and you can
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        dogs.remove(at: indexPath.row)
+        
+        // Delete tableView row
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Check for Segue identifier
         if let identifier  = segue.identifier {
@@ -98,6 +114,12 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        // Inverses current editing mode by making it !(not) whatever it is.
+        let newEditingMode = !tableView.isEditing
+        tableView.setEditing(newEditingMode, animated: true)
+    }
 
+    
 }
 
