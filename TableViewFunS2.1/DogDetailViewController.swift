@@ -42,6 +42,8 @@ class DogDetailViewController: UIViewController {
                     if let dog = dogOptional {
                         dog.name = name
                         dog.breed = breed
+                    } else {
+                        dogOptional = Dog(name: name, breed: breed)
                     }
                 }
             }

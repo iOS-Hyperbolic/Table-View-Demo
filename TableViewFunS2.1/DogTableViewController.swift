@@ -64,7 +64,13 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
                     if let indexPath = tableView.indexPathForSelectedRow {
                         // This is the dog that the user taps on
                         let dog = dogs[indexPath.row]
+                        // Send over the dog the user tapped on to the dogOptional in DogDetailViewController
                         dogDetailVC.dogOptional = dog
+                    }
+                }
+                else if identifier == "AddSegue" {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        tableView.deselectRow(at: indexPath, animated: true)
                     }
                 }
             }
@@ -76,11 +82,16 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
             if identifier == "SaveUnwindSegue" {
                 if let dogDetailVC = segue.source as? DogDetailViewController {
                     if let dog = dogDetailVC.dogOptional {
+                        // If there is a selected row
                         if let indexPath = tableView.indexPathForSelectedRow {
                             dogs[indexPath.row] = dog
-                            // Force refresh
-                            tableView.reloadData()
+                        } else {
+                        // There is no selected row
+                        // -> Unwinding from AddSegue
+                            dogs.append(dog)
                         }
+                        // Force refresh
+                        tableView.reloadData()
                     }
                 }
             }
