@@ -16,6 +16,7 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initializeDogs()
     }
 
     func initializeDogs() {
@@ -53,6 +54,37 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.update(with: dog)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Check for Segue identifier
+        if let identifier  = segue.identifier {
+            if identifier == "DetailSegue" {
+                if let dogDetailVC = segue.destination as? DogDetailViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        // This is the dog that the user taps on
+                        let dog = dogs[indexPath.row]
+                        dogDetailVC.dogOptional = dog
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func unwindToDogTableViewController(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            if identifier == "SaveUnwindSegue" {
+                if let dogDetailVC = segue.source as? DogDetailViewController {
+                    if let dog = dogDetailVC.dogOptional {
+                        if let indexPath = tableView.indexPathForSelectedRow {
+                            dogs[indexPath.row] = dog
+                            // Force refresh
+                            tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
     }
     
 
